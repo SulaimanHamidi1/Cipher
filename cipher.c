@@ -22,8 +22,15 @@ void encryptText (char arr[MAX_WORDS][MAX_CHARS]){
 
     FILE* file = fopen(keyFile, "r");
     
+    int count = 0;
     while(fgets(buffer, 100, file)){
-        
+        for (int i = 0; i < sizeof(buffer); i++){
+            if (buffer[i] == ' '){
+                strcat(" ", arr[count]);
+                count++;
+            }
+            strcpy(arr[count], buffer[i]);
+        }
     }
 
 }
