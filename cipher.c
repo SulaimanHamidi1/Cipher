@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h>
+#include <string.h>
+
+#define MAX_WORDS 10000
+#define MAX_CHARS 20
 
 char menu (){
     printf("e - Encrypt a text\n");
@@ -10,3 +13,17 @@ char menu (){
     return input;
 }
 
+void encryptText (char arr[MAX_WORDS][MAX_CHARS]){
+    char keyFile [30];
+    char buffer [100];
+    printf("Insert your key file");
+    fgets(keyFile, 30, stdin);
+    keyFile[strcspn(keyFile, "\n")] = '\0';
+
+    FILE* file = fopen(keyFile, "r");
+    
+    while(fgets(buffer, 100, file)){
+        
+    }
+
+}
